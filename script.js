@@ -3,6 +3,14 @@ let color = "black"
 document.addEventListener("DOMContentLoaded", function () {
   console.log("Content loaded");
 
+  document.addEventListener("mousedown", function () {
+    isPressed = true;
+  });
+
+  document.addEventListener("mouseup", function () {
+    isPressed = false;
+  });
+
   const slider = document.getElementById('slider');
   const sliderTxt = document.querySelector('.slidertxt');
   slider.addEventListener('input', function() {
@@ -11,9 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
     boardCreate(sliderValue)
   });
 });
-
-
-
 
 function boardCreate(boardSize) {
   let board = document.querySelector(".main");
@@ -35,12 +40,13 @@ function boardCreate(boardSize) {
 }
 
 function colorDiv(){
-    if(color == "random"){
-      this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`
+ if (isPressed) {
+    if (color == "random") {
+      this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+    } else {
+      this.style.backgroundColor = "black";
     }
-    else{
-      this.style.backgroundColor = 'black'
-    }
+  }
 }
 
 function setColor(colorChoice){
