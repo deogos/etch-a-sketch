@@ -11,7 +11,7 @@ body{
   align-items: center;
   justify-content: space-around;
   width: 400px;
-  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .footer{
@@ -26,7 +26,11 @@ body{
   width: 500px;
   height: 500px;
   display: grid;
-  border: 1px solid black;
+  border: 1px ridge  black;
+}
+
+.slidertxt{
+  font-size: 20px;
 }
 
 .btn.btn-rainbow {
