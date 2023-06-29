@@ -1,3 +1,5 @@
+let color = "black"
+
 document.addEventListener("DOMContentLoaded", function () {
   console.log("Content loaded");
 
@@ -27,9 +29,27 @@ function boardCreate(boardSize) {
 
   for (let i = 0; i < numDiv; i++) {
     let div = document.createElement("div");
-    div.style.backgroundColor = "red"
+    div.addEventListener("mouseover",colorDiv)
     board.insertAdjacentElement("beforeend",div)
   }
+}
+
+function colorDiv(){
+    if(color == "random"){
+      this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`
+    }
+    else{
+      this.style.backgroundColor = 'black'
+    }
+}
+
+function setColor(colorChoice){
+ color = colorChoice
+}
+
+function reset(){
+  let divs = document.querySelectorAll("div")
+  divs.forEach((div) => div.style.backgroundColor = "white") 
 }
 
 
